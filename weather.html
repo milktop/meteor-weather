@@ -1,0 +1,33 @@
+<head>
+  <title>Weather search</title>
+</head>
+
+<body>
+  
+  <div class="wrap">
+    <h1>Weather search</h1>
+    {{> weather}}
+  </div> <!-- /.wrap -->
+
+</body>
+
+<template name="weather">
+  
+  <form action="./" method="post">
+    <input type="text" class="search-location" name="search-location" placeholder="Type a place name to get weather" />
+  </form>
+
+  
+  {{# if weather}}
+    <h5>Results for "{{ location }}"</h5>
+    <h6>Updated at {{ weatherTime }}</h6>
+
+    <ul>
+      <li>Weather conditions: {{ weatherSummary }}</li>
+      <li>Current temperature: {{ weather.main.temp }} C</li>
+      <li>Wind speed: {{ weather.wind.speed }} m/s</li>
+    </ul>
+  {{/if}}
+
+
+</template>
